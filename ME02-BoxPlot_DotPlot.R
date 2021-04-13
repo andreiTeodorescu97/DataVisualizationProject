@@ -25,7 +25,7 @@ trans_data$Market_value <- as.double(gsub(",", "", trans_data$Market_value))
 #Converting Transfer_fee and Market_value values to Millions
 trans_data[c("Transfer_fee", "Market_value")] <- trans_data[c("Transfer_fee", "Market_value")]/1e6
 
-## from BoxPlot we can see the most apps are beetween 3 and 5 stars rating
+## BoxPlot for transfer fee
 ggplot(trans_data,aes(y=Transfer_fee))+
   geom_boxplot()+
   ggtitle("BoxPlot a Transfer_fee-ului jucatorilor")+

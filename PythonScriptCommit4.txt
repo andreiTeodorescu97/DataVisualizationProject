@@ -1,0 +1,15 @@
+import numpy as np 
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+df = pd.read_csv("top250-00-19.csv")
+
+plt.style.use('ggplot')
+
+sns.pointplot(x='index',y='Season',data=pd.DataFrame(df.Season.value_counts()).reset_index().sort_values('index'))
+plt.xticks(rotation=90)
+plt.xlabel('Season')
+plt.ylabel('Number of Trade')
+
+df.groupby(['League_to']).Transfer_fee.describe().sort_values('mean', ascending=False)

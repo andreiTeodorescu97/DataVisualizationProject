@@ -1,6 +1,7 @@
+#setwd("F:/Master/Cursuri/An II/Semestrul II/Data Visualization/Proiect Data Visualization")
 transfersData <- read.csv(file = 'top250-00-19.csv')
 #install.package(ggplot2)
-#library(ggplot2)
+library(ggplot2)
 print(is.data.frame(transfersData))
 print(ncol(transfersData))
 print(nrow(transfersData))

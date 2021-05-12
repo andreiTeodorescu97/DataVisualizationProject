@@ -1,0 +1,25 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+%matplotlib inline
+plt.style.use('ggplot')
+
+data = pd.read_csv('top250-00-19.csv')
+
+data.head()
+
+league_from = data.groupby(['League_from'])['Transfer_fee'].sum()
+top5sell_league = league_from.sort_values(ascending=False).head(5)
+top5sell_league = top5sell_league/1000000
+top5sell_league.head()
+
+league_to = data.groupby(['League_to'])['Transfer_fee'].sum()
+top5buy_league = league_to.sort_values(ascending=False).head(5)
+top5buy_league = top5buy_league/1000000
+top5buy_league.head()
+
+diff_league = top5sell_league - top5buy_league
+diff_league = diff_league.sort_values(ascending=False)
+diff_league.head()

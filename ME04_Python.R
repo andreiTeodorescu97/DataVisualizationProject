@@ -24,7 +24,10 @@ plt$style$use('ggplot')
 
 df = pd$read_csv("top250-00-19.csv")
 
+N <- 50L
+x <- np$random$rand(N)
 
+py$df
 
 sns$countplot(x='Position',data=df)
 plt$xticks(rotation=90)
@@ -32,7 +35,7 @@ plt$show()
 
 #Center Foward(CF) traded the most followed 
 #by Center Back and multiple midfielder positions. The Center positions are traded the most!
-sns$pointplot(x='index',y='Season',data=pd$DataFrame(df$Season$value_counts()).reset_index().sort_values('index'))
+sns$pointplot(x='index',y='Season',data=pd$DataFrame(df$Season$value_counts()),reset_index(),sort_values('index'))
 plt$xticks(rotation=90)
 plt$xlabel('Season')
 plt$ylabel('Number of Trade')
@@ -47,12 +50,17 @@ top5sell_league = league_from$sort_values(ascending=False)$head(5)
 top5sell_league = top5sell_league/1000000
 top5sell_league.head()
 
-sns.pointplot(x='index',y='Season',data=pd.DataFrame(df.Season.value_counts()).reset_index().sort_values('index'))
-plt.xticks(rotation=90)
-plt.xlabel('Season')
-plt.ylabel('Number of Trade')
-plt.show()
+sns.pointplot(x='index',y='Season',data=pd$DataFrame(df$Season$value_counts()),reset_index(),sort_values('index'))
+plt$xticks(rotation=90)
+plt$xlabel('Season')
+plt$ylabel('Number of Trade')
+plt$show()
 
+
+league_from <- df$groupby('League_from')['Transfer_fee']$sum()
+top5sell_league <- head(league_from$sort_values(ascending=False))
+top5sell_league <- top5sell_league/1000000
+top5sell_league$head()
 
 
 
